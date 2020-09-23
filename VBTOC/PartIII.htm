@@ -1,0 +1,147 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>VB to C++ Part III:</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+<p>VB to C++ Part III:</p>
+<p>Now, go to the Workspace, and under the fileView tab, d-click (double click) 
+  on the FirstApp.cpp. Now a source window will open. (ARE YOU SCARED!?) Lets 
+  get ready for some C!!!!!</p>
+<p><img src="pics/FILEVIEWWORK.JPG" width="259" height="466"></p>
+<p>Now you see this scary window:</p>
+<p><img src="pics/chWnd1.JPG" width="683" height="499"></p>
+<p>That is very scary. Just that fragment can take me hours to explain. I will 
+  try to do it as fast, yet as thorough as possible. Let's start from the top. 
+  The // markers are parallel to vb's ' comment function. The single caret. Believe 
+  it or not, there actually 2 ways to comment code in C, that's how cool C++ is 
+  :-). Now, since c++ uses mostly API for its functions, there are no API declarations 
+  like in vb. Also, you would define your global variables in the space above 
+  the first function (Which is the global declaration spot just like VB.) If you 
+  miss VB's sub selector (The dropdown box that let you pick subs and functions 
+  in a code window, fear not, there is one right above this code window. Anyway, 
+  what I am trying to say is that the #include statement is including a .h (Header 
+  file, similar to a vb Module .BAS) that contains functions. See in C++, you 
+  can't just plop Header files into it and start calling stuff like in VB, you 
+  must actually link (#include) the name of the header you wish to start calling 
+  functions from, and then (AND ONLY THEN) can you start calling things. &lt;&lt;&lt; 
+  You must already be wondering why you are doing this to yourself, but to motivate 
+  you, I will tell you that c++ programmers can make $220,000 a year compared 
+  to VB's 90,000!&gt;&gt;&gt; Anyway, the include syntax goes like this.</p>
+<p>Number sign include &quot;NameOfHeader.h&quot;</p>
+<p>#include &quot;NameOfHeader.h&quot;</p>
+<p>&nbsp;</p>
+<table border="1">
+<tr>
+<td colspan="2" align="center"> <font size="4" >COMMON INCLUDES</td>
+</tr>
+<tr>
+<td>INCLUDE</td><td>DESCRIPTION</td>
+</tr>
+<tr>
+<td>windows.h</td><td>This is the The Windows API all in one header. Cool Huh?</td>
+</tr>
+<tr>
+<td>commdlg.h</td><td>The Common Dialog API</td>
+</tr>
+<tr>
+<td>iostream</td><td>Only for DOS apps, but it is the Input Output Stream </td>
+</tr>
+<tr>
+<td>stdio</td><td>Only for DOS apps, Standard Input Output</td>
+</tr>
+</table>
+<br>
+<p>If you are ever in doubt, c++ will automatically change the #include text to 
+  blue when used correctly. </p>
+<p>Now , have you ever used CONSTANTS (Consts) in vb? Of course you have. How 
+  do I declare them In C? Good question, here is the answer:</p>
+<p>(#define constname value)</p>
+<p>#define MyNum 134524525</p>
+<p>Notice how there is no semi-colon! All of the code in your subs and functions 
+  needs to have a semi-colon on the end, but defining doesn't.</p>
+<p>Now comes the hard part, this int WinMan business. Believe it or not, this 
+  is simply a function as integer. Lets look at this same function in VB code:</p>
+<p>Private Function WinMain(hInstance as long, hPrevInstance as long, lpCmdLine 
+  as string, nCmdShow as integer) as Integer</p>
+<p>That is it! Like I said, this tutorial is for experienced vb programmers, so 
+  I am not going to get into that code :-). Now, If you noticed that in vb these 
+  are declared as simply long in instead of the other stuff, and let ME WARN YOU 
+  RIGHT NOW, there are so many Identifier types (I.E. Integer, Long ,String) in 
+  C++ that it will make your head spin. In this example of C++ code, you see that 
+  it is HINSTANCE hInstance, what is up with that?</p>
+<p>C++ declares (dims ) variables differently (and better) than vb does. An example 
+  of this would be:</p>
+<p>Dim lVariable as long </p>
+<p>where as in c:</p>
+<p>long lVariable;</p>
+<p>WHat IS ThAT AlL About? It is simple really. JUST TO WARN YOU AGAIN, C++ IS 
+  VERY VERY VERY CASE SENSITIVE, so if you declare a variable called lMyVar, and 
+  then reference(use) it in your code as lmyvar, than c++ will yell at you that 
+  this is an undeclared varible. So In Essence, you could have two variables that 
+  have the same technical names, yet just in differnent cases. Example:</p>
+<p>long MyVar;</p>
+<p>long myvar;</p>
+<p>In C++, those are two totally different LONG variables. Now, there are tons 
+  and tons of Identifiers, and you can search google for a complete list of them. 
+  The only significant ones we will use would be stuff like 'char' 'long' 'int' 
+  etc. NOthing 2 difficult! Now, here are some parallels to vb identifiers:</p>
+  <br>
+  <table border="1">
+  <tr>
+  <td>VB</td><td>C++</td><td>Example</td><td>Description</td>
+  </tr>
+  <tr>
+  <td>long</td><td>long</td><td>long MyNum;</td><td>A huge number (somewhere around 2,000,000)</td>
+  </tr>
+  <tr>
+  <td>integer</td><td>int</td><td>int MyNum;</td><td>A Smaller number</td>
+  </tr>
+  <tr>
+  <td>String</td><td>char</td><td>char MyString [500]</td><td>Now, there is no real String in c++, yet you can use char, but I will get into that later.</td>
+  </tr>
+  <tr>
+  <td>boolean</td><td>bool</td><td>bool bOpen;</td><td>A true/false (same as vb)</td>
+  </tr>
+  </table>
+<p>Now if the char thing makes you nervous, it should, because I still don't have 
+  it down pat 100%, but I have a pretty good handle on it.</p>
+<p>&lt;&lt;&lt;*** What is cool about c++ that vb doesn't have is the ability 
+  to declare and set a value for a variable in one line! Look at this example:</p>
+<p>long MyNum = 124;</p>
+<p>There is no vb way to do this, but if there was it would look like this:</p>
+<p>DIm MyNum as long = 124</p>
+<p>That is pretty cool huh?</p>
+<p>Ok, now you look back at the code and see if any of this sank in! lol. When 
+  you are ok with this, read on.</p>
+<p>The return 0; business is pretty easy to understand. This has a dual fold purpose:</p>
+<p>1) IT SETS THE FUNCTION VALUE:</p>
+<p> Ok, we have this function in vb:</p>
+<p> Private Function MyNum() as Long</p>
+<p>MyNum = 150</p>
+<p>End Function</p>
+<p>// This function would just set MyNum to 150. A usage of this would be</p>
+<p>MsgBox &quot;My number is &quot; &amp; MyNum</p>
+<p>Simple right? Ok, now the same function in C++ would look like:</p>
+<p>long MyNum()</p>
+<p>{</p>
+<p>return 150;</p>
+<p>}</p>
+<p>// Easy enough right? Ok now these two functions do the exact same thing! </p>
+<p>2: CLOSES THE FUNCTION OR SUB</p>
+<p>This is equvilent to the Exit Sub or Exit Function codes in vb.</p>
+<p>Ok, now what is up with the squiggly brackets? { } and such. Since there are 
+  no &quot;Sub Separators&quot; (or the line dividers) in the vb code window, 
+  this is used to show the start of a sub, function, or MANY OTHER functions. 
+  You also use these for IF statements, Switch Statements (parallel to 'Select 
+  Case' in VB) and other such examples. But you will get the handle of this as 
+  we go along.</p>
+<p>Ok, so far I have discussed including, defining consts, variables and how to 
+  declare them, and brackets. You have to understand that I will explain stuff 
+  I missed as we go along, and also I just used about 5 chapters worth of the 
+  C++ books in about one html page lol. Now lets start some coding!</p>
+<p>&nbsp;</p>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>VB to C++ Part VI:</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+<p>VB to C++ Part VI:</p>
+<p>AHHH, ok, you should be familiar with the C++ IDE by now, and if you're not, 
+  that is perfectly ok. Just go back through and look at the pictures and whatnot. 
+  I am no longer going to include pictures of the resource window or anything 
+  like that. But anything new I will screenshot for you :-). OK. Now we must move 
+  on to dynamically creating windows and controls. But, if you want to stay in 
+  the DialogBox part for now, check out the &quot;System Menu&quot; code I Included, 
+  and you know what, I will look at the password code with you before we move 
+  on, so open the code I included with this tutorial (password code). MAKE SURE 
+  YOU OPEN THE .dsw. OK, now you should see nothing new in the code except for 
+  some small things:</p>
+<p><img src="pics/chWnd6.JPG" width="488" height="112"></p>
+<p>In the decs, we see this. We already know what the 2 includes are. What I did 
+  here (and all of my apps) is declare a constanst sCAPTION, so if I ever rename 
+  my program, I don't have to change every single entry for the caption (IE Message 
+  Boxes or SetWindowText() calls.) I will just substitute sCAPTION and then just 
+  change that one variable. Hows that HUH? The sPASS is needed for this specific 
+  program only. It is the password that our program checks. Now this progra (if 
+  you haven't ran it) opens a DialogBox with a textbox and you must enter &quot;Jaime&quot; 
+  for you to &quot;enter&quot;. Nice example of chars and char comparison.</p>
+<p><img src="pics/chWnd7.JPG" width="571" height="261"></p>
+<p>Now this code is interesting. We already know that it is calling the IDC_CONFIRM 
+  (Confirm Button) code. I &quot;dimmed&quot; a char with 50 characters. See in 
+  vb, a string would just be a string. In C, it is actually an array of characters. 
+  That number can be any amount. I used 50 because It was cool. Then I dimmed 
+  an integer lpass. The &quot;GetDlgItemText()&quot; is a pure C function that 
+  gets the text of the item I specify, or in this case IDC_txtpass (textBox). 
+  It is stored in sPassword, and the max length is 50. Now this is interesting, 
+  why didn't we use if (sPassword = = sPASS)? Well, = = refers only to integers. 
+  So I used a strcmp (String Compare) function, that returns 0 if it is true, 
+  and 1 if false. So simply if lPass = the comparison, and the comparison is = 
+  true, than it is = to 0, and then we can call that code !!!! Isn't this fun 
+  yet? That is basically it, the rest of the code is just the main stuff all apps 
+  have in it. Cool.</p>
+<p>OK, we can now start CreateWindow and RegisterClass. Now, I could show you 
+  the code in jpegs and stuff and go over every line, but that is useless. I am 
+  going to go over the stuff that you would need to change or alter, and the rest 
+  is plain stuff that you HAVE to include and have, so why reinvent the wheel? 
+  Just use a template project etc...</p>
+<p>Open the &quot;Win32&quot; source .dsw and compile and run it. Cool Huh? Now, 
+  if you have an API Spy, get the class name of that and you will see that is 
+  a custom one! Hey, that is how they do it. All I did was use some simple API 
+  and another callback function. See the RegisterClass code? where it says ClassName 
+  you can edit it, and change the sAppName constant in the dec part of the code 
+  (up top). And edit some few things, and you get the drift. There really isn't 
+  much to explain. Now, I did something special. I use Windows Media Player, But 
+  I hate it that it is in the taskbar for hours, so I wrote a simple app in vb 
+  a way long time ago that either hides or shows it. Well, once I started learning 
+  c++, and Duplicated this project using pure C++ (The CreateWindow and RegisterClass 
+  way, not even the DialogBox way! I am insane!!!!). Well, even though it was 
+  a lot easier and faster to do it in vb (Hence vb is a r.a.d. RAPID APP DEVELOPMENT) 
+  . Go to the WMP Code folder and compare side by side VB and C++ code doing the 
+  exact same thing.</p>
+<p>So I pretty much taught you the skeleton background of C++. Now go buy Morrison's 
+  &quot;C++ for VB Programmers&quot; that teaches you not to relearn everyting 
+  in c, but just how to create powerful dlls and activexs so you can use them 
+  dynamically for your vb apps. It is such a great book. I owe a lot to him. Anyway, 
+  have fun, and if you have ANY problems or questions contact me. My contact info 
+  is in the readme file. I hope this helped you out a bit, and now you are not 
+  as timid at C++, or use it just to create Icons like I used to back in the day 
+  lol. </p>
+</body>
+</html>

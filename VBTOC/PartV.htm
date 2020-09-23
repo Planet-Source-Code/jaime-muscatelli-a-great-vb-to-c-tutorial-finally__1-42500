@@ -1,0 +1,166 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>VB to C++ Part V:</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+<p>VB to C++ Part V:</p>
+<p>Ok, so far we have this application that pops up this window. Your code should 
+  look like this:</p>
+<p><img src="pics/chWnd3.JPG" width="750" height="465"></p>
+<p>Now click ( on the workspace window) the 'ResourceView' tab, and expand all 
+  of the expandable folders, and double click on IDD_MAIN:</p>
+<p><img src="pics/resourceview.JPG" width="256" height="444"></p>
+<p>Now, the Dialog window will appear again (The window that looks like vb with 
+  the control box). Double click on the background of the Dialog, and click on 
+  the &quot;Styles&quot; tab, and check the &quot;Minimize Box&quot; checkbox:</p>
+<p><img src="pics/minimize.JPG" width="404" height="164"></p>
+<p>While you are in there, you can look at some of the other settings, but you 
+  shouldn't mess with anything else. Now delete the &quot;Cancel&quot; Button 
+  and then click save. Now we are going to put some code under the IDOK (Ok BUtton). 
+  Save this window, then close it and make sure the FirstApp.cpp code window is 
+  open. Now I am going to have you enter this code right under the first 'case'.</p>
+<pre> case WM_COMMAND:
+   {
+   	if(LOWORD(wparam) == IDOK)
+   		{
+   			MessageBox(hwnd,&quot;Hey, you clicked ok, exiting&quot;,&quot;Cool&quot;,MB_OK);
+   		}
+		break;
+   }</pre>
+<p>So your code will now look like this:</p>
+<p><img src="pics/chWnd4.JPG" width="766" height="468"></p>
+<p>Don't worry, I just didn't have enough room to get the whole screen shot in, 
+  but the code that was above the code in this picture is still there (The includes 
+  and all of that stuff). Ok, Now compile it, run it, and hit OK. It should have 
+  Msgbox'ed &quot;Hey, you clicked ok, exiting&quot;. Pretty cool huh. You are 
+  now a C++ programmer. Isn't this awesome?!?!?! Now I have the fun pleasure of 
+  explaining all of this code (GULP!).</p>
+<p>Ok, the first couple lines I have already explained. Lets go to the &quot;DialogBox(&quot; 
+  line. Now, As you have probably tried to do, there are no set parameters for 
+  this. It is similar to the Line Input and Input codes in vb (How there are no 
+  parameter popup windows that help you with the code). That's life. Just learn. 
+  This line looks like this:</p>
+<p>DialogBox(hInstance, (LPCTSTR)IDD_MAIN, 0, (DLGPROC) DlgProc);</p>
+<p>In all honesty, I am not sure what most of this does. As I said before, I am 
+  new to c++. It calls the resource we made (IDD_MAIN), and then passes DlgProc 
+  window procedure to WINDOWS for it to check messages with. Ok, this is an extremely 
+  hard topic. I am still fuzzy, so search google for DialogBox C++ or something 
+  :-). </p>
+<p>NExt, lets go to the switch() statement. As I stated before, switch is exactly 
+  like Select Case in vb. For Example in VB:</p>
+<p>Select Case IAMCOOL</p>
+<p>CASE TRUE:</p>
+<p>CASE FALSE:</p>
+<p>End Select</p>
+<p>Well in C that would be:</p>
+<pre>switch (IAMCOOL)
+	{
+		case TRUE:
+			{
+			}
+		case FALSE:
+			{
+			}
+	}</pre>
+<p>If you are wondering what &quot;break;&quot; means, it is equal to saying exit 
+  select. (Breaks out of the switch). In this case, it is switching the WIndow 
+  Message That windows said the user performed. For instance, under WM_CLOSE, 
+  it says PostQuitMessage(0);. That is a way to close this app. If you took that 
+  line out, it wouldn't close. (AHH FINE, GO AHEAD AND TRY IT, BUT HAVE FUN TRYING 
+  TO CLOSE IT! (USE A PROCESS KILLER) ). Anyway, the WM_COMMAND is the window 
+  message that is called when a button is clicked or something of that nature. 
+  Then we use the if statement to see if the value of wparam = = IDOK. Now, that 
+  is something I missed.</p>
+<p>In VB, the = (equal) sign means 2 things: assignment and comparison:</p>
+<p>1)ASSIGNMENT</p>
+<p> sJaime = &quot;HEY WORLD&quot;</p>
+<p>2) COMPARISON</p>
+<p>if sJaime = &quot;HEY WORLD&quot; then</p>
+<p>...</p>
+<p>...</p>
+<p>...</p>
+<p>IN C++ however, there are 2 separate signs for assignment and comparison.</p>
+<p>1) Assignment</p>
+<p>long lMyNum = 456456456;</p>
+<p>2) Comparison</p>
+<p>long lMyNum;</p>
+<p>if (lMyNum = = 45645645)</p>
+<p>{</p>
+<p>....</p>
+<p>}</p>
+<p>BEWARE, you can only use = = for number values only. NOT STRINGS. I will show 
+  you how to do that later in a password comparison example. Now, the MessageBox() 
+  code is different from the MsgBox code from vb. However, you can use the MessageBox() 
+  code in vb by declaring it in vb (use API Dec Loader). The parameters are easy:</p>
+<p>MessageBox(HWND hwnd, LPCSTR lpText, LPCSTR lpCaption, UINT uType)</p>
+<p>Ok , the hwnd value can be set to 0 if you want. The lpText is the text you 
+  want to say, the lpCaption is the caption, and the uType is what type. Here 
+  are the constants for it.</p>
+<table border="1">
+<tr>
+<td colspan="3" align="center"><font size="4">CONSTANTS</td>
+</tr>
+<tr>
+<td>CONSTANT</td><td>DESCRIPTION</td><td>VB USAGE</td>
+</tr>
+<tr>
+<td>MB_ABORTRETRYIGNORE </td><td>Abort Retry Ignore Buttons</td><td>vbabortretryignore</td>
+</tr>
+<tr>
+<td>MB_ICONASTERISK  </td><td>Icon Info</td><td>vbinformation</td>
+</tr>
+<tr>
+<td>MB_ICONEXCLAMATION </td><td>Exclaimation</td><td>vbexclaimation</td>
+</tr>
+<tr>
+<td>MB_ICONHAND</td><td>Critical Icon</td><td>vbcritical</td>
+</tr>
+<tr>
+<td>MB_ICONQUESTION</td><td>Question Icon</td><td>vbquestion</td>
+</tr>
+<tr>
+<td>MB_OK</td><td>Ok Button Only</td><td>vbokonly</td>
+</tr>
+<tr>
+<td>MB_OKCANCEL</td><td>Ok and Cancel Button</td><td>vbokcancel</td>
+</tr>
+<tr>
+<td>MB_RETRYCANCEL</td><td>Retry and Cancel Buttons</td><td>vbretrycancel</td>
+</tr>
+<tr>
+<td>MB_SYSTEMMODAL</td><td>Brings MessageBox to the front of everywindow and places and Icon in the top-left corner</td><td>vbsystemmodal</td>
+</tr>
+<tr>
+<td>MB_YESNO</td><td>Yes and No Buttons</td><td>vbyesno</td>
+</tr>
+<tr>
+<td>MB_YESNOCANCEL</td><td>Yes,No, and Cancel Buttons</td><td>vbyesnocancel</td>
+</tr>
+</table>
+<br>
+<p>Now in vb, you could use vbokonly + vbsystemmodal etc. Well you can't use the 
+  + operator. You have to use the | operator. (Hold Shift and Hit the BackSpace 
+  Key). That is the simple OR statement. :-). Basically, you can use any of the 
+  WM_ constansts for the switch statement. Another example would be WM_INITDIALOG, 
+  which is parallel to FORM_LOAD event in vb. THis is where we can center the 
+  form to the screen or change the caption. In fact, lets do both. Type this in 
+  a new case statement:</p>
+<pre>case WM_INITDIALOG:<br>		{<br>			double ScreenX=0;<br>			double ScreenY=0;<br>			double WinX=0;<br>			double WinY=0;<br>			RECT wnd;<br>			<br>			GetWindowRect(hWnd, &amp;wnd);<br>			WinX = wnd.right - wnd.left;<br>			WinY = wnd.bottom - wnd.top;<br>			ScreenX = GetSystemMetrics(SM_CXSCREEN);<br>			ScreenY = GetSystemMetrics(SM_CYSCREEN);<br>			ScreenX = ((ScreenX * .95) / 2) - ((int)WinX / 2);<br>			ScreenY = (ScreenY / 2) - ((int)WinY / 2);<br>			SetWindowPos(hWnd,HWND_TOPMOST, (int)ScreenX ,(int)ScreenY,(int)WinX,(int)WinY,NULL);<br>			<br>			SetWindowText(hwnd,&quot;Hey, this is my first Program In C!&quot;);<br>			return true;<br>		}</pre>
+<p>Now that is simple API that gets the rect of the window and blah blah blah. 
+  That you should know from vb. And the SetWindowText Is also another popular 
+  API that vb uses sometimes. So, That should be self explainitory. Your code 
+  should look like this:</p>
+<p><img src="pics/chWnd5.JPG" width="769" height="473"></p>
+<p>Ok, there you go. You made your first C++ app. That wasn't that bad was it? 
+  I hope not, because that is the EASY way to create a window in C++. Now lets 
+  move on to CreateWindow.<br>
+  <br>
+</p>
+<pre>&nbsp; </pre>
+<p>&nbsp;</p>
+<p>&nbsp; </p>
+</body>
+</html>
