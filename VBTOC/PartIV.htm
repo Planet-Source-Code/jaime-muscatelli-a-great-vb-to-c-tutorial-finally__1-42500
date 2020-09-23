@@ -1,0 +1,115 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>VB to C++ Part IV:</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+<p>VB to C++ Part IV:</p>
+<p>Now comes to the two ways (That I mentioned in the Intro.txt) to open a window. 
+  Now, one way is just creating a resource and calling to open, and the other 
+  is creating the entire window and objects (BUttons, Picture Boxes etc) dynamically 
+  (or at runtime), which is my favorite to do! Yet, it takes a little while, so 
+  we will take it slow and use the DialogBox function in C++ that will create 
+  the WIndow for us (Yet we still can't name the class name ourselves, to it is 
+  set to #32770!). Now, hopefully your c++ project &quot;FirstApp&quot; is still 
+  open. (JUST FOR REFERENCE, I INCLUDED IN THE EXAMPLES MY FIRSTAPP SOURCE JUST 
+  INCASE YOU HAVE TROUBLE!) Now, there are also 2 different forms of running applications 
+  at runtime (Like VB's Start command, that lets you run the program while in 
+  vb). You can either 'Build' the current .cpp, which is not recommended, or you 
+  can &quot;Compile&quot; the entire program everytime, which is highly recommended! 
+  There is a &quot;BUILD/COMPILE&quot; toolbar that should already be open in 
+  your C++ IDE, but if it isn't right-click anywhere on the toolbars and hit the 
+  &quot;Build MiniBar&quot; menu item. It looks like this:</p>
+<p><img src="pics/MiniBar.JPG" width="169" height="31"></p>
+<p>Now, you would hit the compile button ( or the second Icon in this toolbar) 
+  it would TRY to compile, depending if you have any errors or not (I Will discuss 
+  the output window in a minute) and if it is error free, it will compile. Then 
+  you would click the red Exclaimation point (which actually runs the program), 
+  and there you go!</p>
+<p>Now, knowing my luck you have never even heard of a CALLBACK function. As a 
+  matter of fact, vb does 95% of the callback functions for you. The only time 
+  I have used callback functions in vb are when I either put a menu item in the 
+  System Menu of my app, or I enumerated windows. A callback function is simply 
+  the function that WINDOWS calls when it goes to initalize (and keeps calling 
+  while your prog is open) to get messages from. The messages are simply some 
+  of the WM_ constansts. This may blow you away right now, but just try to bear 
+  with me.</p>
+<p>First, go to File&gt;New and click on the tab called 'Files'</p>
+<p><img src="pics/ResourceFile.JPG" width="562" height="400"></p>
+<p>Now, make sure the &quot;Add to Project&quot; checkbox is checked. Click on 
+  the &quot;Resource Script&quot; item, and in the file name type 'resourcesc'. 
+  (Without the ' ' ). Ok, that is the Resource Script, which basically holds all 
+  of our resources for us (HOW NICE!). Hit ok, and now a new window opens and 
+  it says &quot;resourcesc.rc&quot; next to a folder. This is the containter. 
+  You may have also noticed that a new tab was added to our Workspace window ('ResourceView'):</p>
+<p><img src="pics/resourcescript.JPG" width="552" height="504"></p>
+<p>Ok, now click Insert&gt;Resource just like you did way back. You will see this:</p>
+<p><img src="pics/RESOURCE.JPG" width="351" height="271"></p>
+<p>Now click on Dialog. DO NOT EXPAND THE MENU, just click on dialog and then 
+  hit new. WOW, this looks like vb now! Yes it does! Now, if you don't see a toolbox 
+  on the right of the screen, right click on a toolbar and hit &quot;Controls&quot;.</p>
+<p><img src="pics/dialog.JPG" width="720" height="399"></p>
+<p>Ok, we are almost done. Double click on the dialog, and this window will appear.</p>
+<p><img src="pics/dialogprops.JPG" width="404" height="163"></p>
+<p>Now see where it says IDD_DIALOG1? Change it IDD_MAIN. Make sure you change 
+  it only to IDD_MAIN, and all in caps, because c++ is case sensitive and we need 
+  to dynamically call this with code. (Sorry, no magical vb code window lol). 
+  You can if you want change the caption by editing the text in the &quot;Caption&quot; 
+  textbox. CLick Save, and then close the dialog window. Now the resource script 
+  window will appear again, close that 2! AHH, Back to code, keep that open :-). 
+  We are almost done, but we have to do 2 more things. 1) Go to Project&gt;Add 
+  to Project&gt;Files and you should be in the directory that your project files 
+  are in. Search for 'resource.h', and open it! Click Save. Now you will notice 
+  under the &quot;Header Files&quot; folder in the FileView Tab of the Workspace 
+  it added resource.h. Aren't they so nice? Now, go the code window and directly 
+  under &quot;#include &quot;stdafx.h&quot; &quot; put:</p>
+<p>#include &quot;resource.h&quot;</p>
+<p>What that did was it told c++ to link the declarations and functions from resource.h 
+  into our FirstApp.cpp. It doesn't count as included just because we added it 
+  to our project workspace, (WHICH REMINDS ME: When opening your stuff, always 
+  open the .dsw (Project Workspace, not the Project file) because the workspace 
+  includes everything. To do this, either d-click on the .dsw file in your director 
+  or go to File&gt;Open Workspace), but we actually need to include the code right 
+  into the .cpp. So if we had 8 .cpp files in our app, and we only wanted four 
+  to have the stuff from resource.h, then we would include resource.h in only 
+  the four we wanted. In other words, the .h files are not defaultly linked to 
+  the cpp files, we have to do that! Ok, we are set to code now.</p>
+<p>Now go to the bottom (under the WinMain Function) and Type:</p>
+<pre>LRESULT CALLBACK DlgProc(HWND hwnd, UINT msg, WPARAM wparam, LPARAM lparam)
+   {
+   	switch (msg)
+   		{
+   			case WM_CLOSE:
+  				{
+   				PostQuitMessage(0);
+   			}
+   		}
+   return false;
+   }
+ </pre>
+<p>That is the callback function that windows will call when we open and use our 
+  dialog form (IDD_MAIN). Now, go to the very top (right under #include &quot;resource.h&quot;) 
+  and enter this</p>
+<p>LRESULT CALLBACK DlgProc(HWND hwnd, UINT msg, WPARAM wparam, LPARAM lparam);</p>
+<p>That is it. Make sure you have the semi-colon after it. What that does is it 
+  is a way to declare that a sub exits under the WinMain function. In other words, 
+  whenever you create a sub or function, you must include the type, name, and 
+  all params followed by a semi-colon ( ; ) right under the includes. If you are 
+  confused, check out some of my code to get a grasp at it. Your code window for 
+  cpp should look like this:</p>
+<p><img src="pics/chWnd2.JPG" width="766" height="465"></p>
+<p>If you have no clue on what any of that code means, then that is GREAT! I will 
+  explain it in due time, but for now just create it so we can move on. Now under 
+  the WinMain function Add this:</p>
+<p>DialogBox(hInstance, (LPCTSTR)IDD_MAIN, 0, (DLGPROC) DlgProc);</p>
+<p>That tells C++ to create the window using our IDD_MAIN dialog window. That 
+  is why it is important to keep names so strictly. Now it looks like this:</p>
+<p><img src="pics/chWnd3.JPG" width="750" height="465"></p>
+<p>Now compile it, run it and WOw, it is magic. However, the OK and Cancel buttons 
+  do not work, but I will show that to you in the next part. If something went 
+  wrong, make sure you followed every one of these steps. Still, I included this 
+  code along with other examples, so have fun. NEXT!</p>
+</body>
+</html>

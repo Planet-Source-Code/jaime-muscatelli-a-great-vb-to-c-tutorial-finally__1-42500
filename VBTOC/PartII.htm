@@ -1,0 +1,79 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>VB to C++ Part II</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+
+<body>
+<p>VB TO C++ PART II:</p>
+<p>(MAKE SURE you have read both the intro.txt and PartI.txt before proceeding)</p>
+<p>Ok, we are now ready to go through a crash course in the C++ IDE. I am using 
+  Microsoft Visual C++ 6 IDE, so I hope you are as well. If you don't have it, 
+  go to Microsoft.com and download the introductory version of it. First off, 
+  open up C++, then click on File&gt;New. This window will appear.</p>
+<p><img src="pics/PROJECTMAN.JPG" width="559" height="399"></p>
+<p>Ok, there are a lot of Project types. And if you notice, there are also tabs 
+  at the top of this dialog. If you go to files, it will list certain files that 
+  you could insert into your app. But don't worry about that now; all you need 
+  to worry about now is the 'Win32 Application' Project type. As I have said in 
+  PART I, MFC projects and Console apps are available, but I am not going to teach 
+  those in this tutorial. So go ahead and click on the Win32 Application List 
+  Item, and go to the textbox where it says Project Name, and type the name of 
+  the project&gt;&gt;&gt; See, in C++, it will create most of the files with the 
+  name you enter there, and also it will automatically create a folder (also with 
+  the same name) in the directory specified (Location textbox). Ok, lets name 
+  our project FirstApp, and hit ok. Now this window will appear. </p>
+<p><img src="pics/STEP1Of1.JPG" width="476" height="384"></p>
+<p>This is simply a window that asks you if you want C to create some standard 
+  files for you, or create a totally empty project. (The Hello World thing is 
+  garbage, don't worry about it, it is for newbies :-) .) Go ahead and click on 
+  the &quot;A Simple Win32 Application&quot; radio button and then hit finish! 
+  Now this window will appear.</p>
+<p><img src="pics/NEWPROJINFO.JPG" width="412" height="424"></p>
+<p>This just a confirmation of the files and project types that will be created 
+  and opened for you. Go ahead and click ok. Now, once you hit ok, you will see 
+  a progress bar in the bottom left corner, and then nothing (which is pretty 
+  scary compared to VB opening things for you!). Now is the time for me to go 
+  over the 'Workspace' window (the window in the next picture).</p>
+<p><img src="pics/WORKSPACE.JPG" width="282" height="531"></p>
+<p>Now, this is parallel to the VB project view workspace in vb. This just lets 
+  you open and close files on the fly. (If your Item didn't automatically expand 
+  (The project name &quot;FirstApp Classes&quot;, then go ahead and click on it.) 
+  It will load, and then it will show you a globals Folder, which is just basically 
+  an enumeration of your functions, subs, and global variables (Useful huh?!?). 
+  The only thing that will be in it is this &quot;WinMain&quot; Function, but 
+  I will get into that in the next part. Just as a reminder, this is in the 'ClassView' 
+  tab, and we will next go over the 'FileView tab' of this workspace. The tabs 
+  are on the bottom. Click on 'FileView', and this window will appear.</p>
+<p><img src="pics/FILEVIEWWORK.JPG" width="259" height="466"></p>
+<p>Go ahead and expand all of the expandable items, and it should look like this! 
+  Now, to explain this is difficult, so bear with me (C++'s file system is a lot 
+  more complicated than Vb's). Ok, the files part is self-explainitory, then the 
+  'Source' Folder. This contains the .ccp files, or the C++ Source files. These 
+  aren't really parallel to anything in vb, because they ARE NOT forms, yet they 
+  could contain the code to initialize forms. As you use C++ more and more, you 
+  will get used to this concept. The 'FirstApp.cpp' is the main cpp for this project, 
+  yet there is no definite &quot;Main&quot; for Win32 in c++. I TOLD YOU THIS 
+  WASN'T EASY! Now, the StdAfx.cpp is really not needed, yet it was one of the 
+  files that C generated for us, so MAKE SURE you leave it in the project. </p>
+<p>Next, the &quot;Header&quot; folder, which is parallel to a Module (.BAS) file 
+  in vb, contains the C++ versions of the BAS module for C. This keeps eveything 
+  nice and neat and simple. The resource folder is empty, for now, but will be 
+  used later on to hold our Resources. &lt;&lt;&lt; What Are Resources? &gt;&gt;&gt; 
+  Resources are simply any non-code object that is dynamicly or statically linked 
+  to our program. IF that confused you , we can cheat and go to the Resource window. 
+  Go to the Insert menu, and then click on resources. DON&quot;T CLICK ON ANYTHING!!!!!!!!!!! 
+  Just look for now, but as you can see, it is a lot more complicated than vb. 
+  Look here:</p>
+<p><img src="pics/RESOURCE.JPG" width="351" height="271"></p>
+<p>These are just simply some of the things that are linked to our program using 
+  code. Yes, even Icons are placed in our project through code! EVERYTHING lol. 
+  I know it makes you miss the glorious vb Properties window, but this will make 
+  you a man ! Just close this window, but this was just to whet your appetite 
+  for c++ lol. </p>
+<p>Now, that is basically it! I will include more pictures as we discover new 
+  features, but now we are off to the c++ syntax!!!!!!!!!!!!!</p>
+<p>&nbsp;</p>
+</body>
+</html>

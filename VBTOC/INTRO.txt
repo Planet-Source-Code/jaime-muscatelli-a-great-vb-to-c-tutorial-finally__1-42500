@@ -1,0 +1,9 @@
+Welcome to C++! This tutorial is a very brief but useful reference to use when switching from VB to C++. Now, I have vb'ed for 4 years, and I love it; yet I now need some more power and the ability to create low level programs and dlls. Now, first of all, you should have Visual Basic 6 and Visual C++ 6 installed on your computer. 
+
+This tutorial will basically show you a side by side comparison of code in vb and in c++. First, you must understand that VB and c++ are two totally different languages. While VB is predominatly used for quick Win32 applications, C++ dominates the programming field by allowing users to create Win32 applications, DOS (Console) applications, ActiveX, Dlls, and much much more!
+
+Don't get me wrong, vb is my mistress!!! Yet, I wanted more power and consistency in my programs, and I found it in C++. In essence, by using this tutorial you can enhance your vbing by using dlls created c++ or that type of thing, or you can switch all together. It helps to have more than one programming language under your belt.
+
+Now if you have (like I have for years!) tried opening c++ and were so totally lost that you never dared to click the icon again, then you are in the right place. For you advanced c++ programmers reading this, you might see this as a joke, yet I learning c++ the hard way by having to dig into so many 1000 page books that I have no choice! Let me say this right now that I just started c++ a month ago, and I have already answered some of the questions that I had before I started. 
+
+Ok, I am done talking! Just sit back, get comfortable, grab a drink, and lets get going!
